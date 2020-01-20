@@ -97,9 +97,11 @@ You're looking for the `Digest` key in the output of `docker pull`
 
 <details><summary>Solution: how to pull the image by its SHA256</summary>
 <br/>
+   
 ```
 docker pull node@sha256:bdc6d102e926b70690ce0cc0b077d450b1b231524a69b874912a9b337c719e6e
 ```
+
 <br/>
 </details>
 
@@ -152,6 +154,7 @@ Pre-requisite: you will need a Docker Hub account to be able to push your own si
 
 <details><summary>Hint</summary>
 <br/>
+   
 ```
 docker build -t lirantal/docker-image-security-workshop:signed .
 ```
@@ -167,6 +170,7 @@ Note: provide it with passphrases that you will easily remember for the workshop
 
 <details><summary>Hint</summary>
 <br/>
+   
 ```
 docker push lirantal/docker-image-security-workshop:signed
 ```
@@ -208,9 +212,11 @@ Only after you found issues with either or both of the above linters should you 
 
 <details><summary>Hint</summary>
 <br/>
+   
 ```
 docker build -t best-practices .
 ```
+
 <br/>
 </details>
 
@@ -218,6 +224,7 @@ docker build -t best-practices .
 
 <details><summary>Solution</summary>
 <br/>
+   
 ```
 docker run -it --rm best-practices:latest sh
 ```
@@ -236,6 +243,7 @@ whoami
 <details><summary>Solution</summary>
 <br/>
 Update the Dockerfile to make use of the built-in `node` user:
+   
 ```
 ...
 USER node
