@@ -130,6 +130,7 @@ How can we check if an image is trusted?
 
 <details><summary>Solution</summary>
 <br/>
+   
 ```
 docker trust inspect --pretty azukiapp/busybox
 ```
