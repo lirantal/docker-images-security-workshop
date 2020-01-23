@@ -36,12 +36,6 @@ $ docker pull <image>
 $ snyk test --docker <image>
 ```
 
-Hint: what happens if you provide the Snyk CLI with the Dockerfile as well?
-
-```
-$ snyk test --docker <image> --file=Dockerfile
-```
-
 <br/>
 </details>
 
@@ -54,7 +48,12 @@ $ snyk test --docker <image> --file=Dockerfile
 
 If the Snyk CLI is provided with a Dockerfile it will give you a remediation advice so you can make a conscious decision of which image you could move to in order to lower the security vulnerabilities foot-print.
 
-See [Snyk CLI install instructions](https://support.snyk.io/hc/en-us/articles/360003812458-Getting-started-with-the-CLI) to get started.
+What happens if you provide the Snyk CLI with the Dockerfile as well?
+
+```
+snyk test --docker <image> --file=Dockerfile
+```
+
 
 <br/>
 </details>
