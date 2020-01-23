@@ -15,8 +15,32 @@ Starting point is this goofy project called `docker-goof` which uses an old vers
 <details><summary>Hint</summary>
 <br/>
 
+We'll get started with scanning a docker image using the Snyk CLI which is free to use and scan.
+
+### Install the Snyk CLI
+
 You can use the open source Snyk CLI to scan the image.
-See [Snyk CLI install instructions](https://support.snyk.io/hc/en-us/articles/360003812458-Getting-started-with-the-CLI) to get started.
+
+* [Install Snyk on Windows](https://support.snyk.io/hc/en-us/articles/360003812538#UUID-ac39f35d-8608-e949-613d-24333ced4d42)
+* [Install Snyk on macOS](https://support.snyk.io/hc/en-us/articles/360003812538#UUID-876089c6-d195-a81e-4c7a-21354f788306)
+* [Install Snyk on Linux](https://github.com/snyk/snyk/releases) and other self-contained executables for Windows and macOS.
+
+See [Snyk CLI install instructions](https://support.snyk.io/hc/en-us/articles/360003812458-Getting-started-with-the-CLI) to get started for the CLI
+
+### Scan a docker image for security vulnerabilities
+
+To scan an image you'll need to pull the docker image to your host locally and then scan it:
+
+```
+$ docker pull <image>
+$ snyk test --docker <image>
+```
+
+Hint: what happens if you provide the Snyk CLI with the Dockerfile as well?
+
+```
+$ snyk test --docker <image> --file=Dockerfile
+```
 
 <br/>
 </details>
