@@ -385,6 +385,24 @@ WORKDIR ~/project
 CMD node index.js
 ```
 
+An example of a full multi-stage Node.js docker image build Dockerfile:
+
+```
+FROM node:12 AS build
+RUN mkdir ~/project
+COPY app/. ~/project
+WORKDIR ~/project
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+RUN npm install
+
+FROM node:12-slim
+RUN mkdir ~/project
+COPY app/. ~/project
+COPY --from=build /app/~/project/node_modules ~/project/node_modules
+WORKDIR ~/project
+CMD node index.js
+```
+
 <br/>
 </details>
 
