@@ -398,7 +398,7 @@ RUN npm install
 FROM node:12-slim
 RUN mkdir ~/project
 COPY app/. ~/project
-COPY --from=build /app/~/project/node_modules ~/project/node_modules
+COPY --from=build /~/project/node_modules ~/project/node_modules
 WORKDIR ~/project
 CMD node index.js
 ```
