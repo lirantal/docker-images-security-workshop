@@ -128,89 +128,7 @@ docker pull node@sha256:bdc6d102e926b70690ce0cc0b077d450b1b231524a69b874912a9b33
 <br/>
 </details>
 
-## 3. Challenge: Signed images for extra trust
-
-Docker Hub is a software marketplace in the form of containers. Just like any other open marketplace, this means that Docker Hub is also a hub for supply-chain attacks and you may pull malicious images, either on their own or those of official sources.
-
-To further provide you with safety net as authority and integrity of the image you pull it is possible to enable docker's content trust.
-
-Enabling Docker's content trust policy:
-
-```
-export DOCKER_CONTENT_TRUST=1
-```
-
-Try your luck with some of your favorite sources for docker images and pull them away. Did it work?
-
-No ideas for docker images? no worries!
-Try to pull this docker image, which should fail because it isn't a signed image:
-
-```
-docker pull azukiapp/busybox
-```
-
-How can we check if an image is trusted?
-
-<details><summary>Solution</summary>
-<br/>
-   
-```
-docker trust inspect --pretty azukiapp/busybox
-```
-
-And then inspect the output for a trusted image:
-
-```
-docker trust inspect --pretty node:10
-```
-
-<br/>
-</details>
-
-Enabling content trust means you are only able to pull, run or build trusted images.
-
-### Let's build a signed docker image
-
-Pre-requisite: you will need a Docker Hub account to be able to push your own signed image. If you don't have it, please create one.
-
-1. In the `signed-image/` directory you will find a sample `Dockerfile` that we will use to build and then sign when we push it to the Docker Hub registry.
-2. Build the docker image
-
-<details><summary>Hint</summary>
-<br/>
-   
-```
-docker build -t lirantal/docker-image-security-workshop:signed .
-```
-
-Note: you probably want to change the `lirantal` account to your own.
-<br/>
-
-</details>
-
-3. Push the image to Docker Hub, which will now prompt you for passphrases for the generated keys that it created during the process. Why is it now doing this? because we enabled Docker's Content Process with that environment variable before.
-
-Note: provide it with passphrases that you will easily remember for the workshop. It's just an exercise, so I went with `passphrase1` and `passphrase2` for both keys.
-
-<details><summary>Hint</summary>
-<br/>
-   
-```
-docker push lirantal/docker-image-security-workshop:signed
-```
-
-Note: you probably want to change the `lirantal` account to your own.
-<br/>
-
-</details>
-
-4. Ask a friend to pull the signed image you just pushed. Did it work for them?
-
-Both the `root key` and the `repository key` should be available in `~/.docker/trust/private/`. Want to learn more about how DCT works? [Learn here](https://docs.docker.com/engine/security/trust/content_trust/).
-
-Wondering about how to automate this process in CI and build processes? [See this](https://docs.docker.com/engine/security/trust/trust_automation/) about key delegation
-
-## 4. Challenge: Really bad practices by default
+## 3. Challenge: Really bad practices by default
 
 Reminder: if you're coming here from previous challenges, did you remember to turn Docker's Content Trust policy off? Right, you need to do that:
 
@@ -279,7 +197,7 @@ Now build the container and run again to check which is user is being used.
 <br/>
 </details>
 
-## 5. Challenge: All your secrets belong to me!
+## 4. Challenge: All your secrets belong to me!
 
 Did the `Dockerfile` smell somewhat fishy to you in the previous challenge?
 It was smelly of secrets and tokens!
