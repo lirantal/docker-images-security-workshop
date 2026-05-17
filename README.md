@@ -324,6 +324,10 @@ CMD node index.js
 <br/>
 </details>
 
+## Contributing
+
+Please consult [CONTRIBUTING](./CONTRIBUTING.md) for guidelines on contributing to this project.
+
 # Author
 
 **Docker image security best practices workshop** © [Liran Tal](https://github.com/lirantal), Released under [CC BY-SA 4.0](./LICENSE) License.
